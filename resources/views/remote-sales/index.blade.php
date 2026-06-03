@@ -2,276 +2,346 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Remote Sales Jobs | Agricultural Equipment & Vehicles</title>
+    <title>Remote Sales Jobs | Agricultural Equipment & Vehicle Sales</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Remote phone sales opportunity for experienced agricultural equipment and vehicle sales specialists. Work from home. Paid in USDT.">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('/site.webmanifest')}}">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #101412;
-            color: #f8f5ed;
-        }
-
-        .hero {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #123524, #1f2a24);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            max-width: 850px;
-            margin: 0 0 20px;
-            font-size: 52px;
-            line-height: 1.05;
-            color: #f3c76a;
-        }
-
-        .hero p {
-            max-width: 720px;
-            font-size: 20px;
-            line-height: 1.6;
-            color: #e6e0d1;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 16px 28px;
-            border-radius: 999px;
-            background: #b83226;
-            color: #ffffff;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .section {
-            padding: 60px 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            padding: 28px;
-            border-radius: 20px;
-            background: #1c231f;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: #f3c76a;
-        }
-
-        .card p,
-        .card li {
-            color: #ded8c8;
-            line-height: 1.6;
-        }
-
-        .form-section {
-            background: #171c19;
-        }
-
-        .form {
-            max-width: 720px;
-        }
-
-        .field {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 1px solid #3a443d;
-            background: #0f1311;
-            color: #ffffff;
-            font-size: 16px;
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .error {
-            margin-top: 6px;
-            color: #ff9a8f;
-            font-size: 14px;
-        }
-
-        .success {
-            margin-bottom: 24px;
-            padding: 16px 18px;
-            border-radius: 12px;
-            background: rgba(46, 125, 50, 0.2);
-            border: 1px solid rgba(76, 175, 80, 0.5);
-            color: #b9f6ca;
-        }
-
-        .submit {
-            border: 0;
-            cursor: pointer;
-            padding: 16px 28px;
-            border-radius: 999px;
-            background: #b83226;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 56px 20px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @vite([
+        'resources/css/remote-sales.css',
+        'resources/js/remote-sales.js',
+    ])
 </head>
 <body>
-<section class="hero">
-    <div class="container">
-        <h1>Sell Agricultural Equipment and Vehicles to U.S. Buyers. From Home. Paid in USDT.</h1>
+<div class="site-shell">
+    <div class="noise-layer"></div>
+    <div class="gradient-orb gradient-orb-one"></div>
+    <div class="gradient-orb gradient-orb-two"></div>
+    <div class="gradient-orb gradient-orb-three"></div>
 
-        <p>
-            We are looking for experienced remote phone sales specialists who can speak confidently
-            with buyers in the United States. This is a commission-based remote role with USDT payments.
-        </p>
+    <header class="site-header" data-glass-header>
+        <div class="container header-inner">
+            <a href="#top" class="brand" aria-label="Classic American Sales">
+                <span class="brand-mark">
+                    <img src="{{asset('/images/logo.png')}}" alt="logo">
+                </span>
+                <span class="brand-text">
+                        <span>Classic American Sales</span>
+                        <small>U.S. Equipment Market</small>
+                    </span>
+            </a>
 
-        <a href="#apply" class="button">Apply Now</a>
-    </div>
-</section>
+            <nav class="desktop-nav" aria-label="Main navigation">
+                <a href="#role">Role</a>
+                <a href="#requirements">Requirements</a>
+                <a href="#apply">Apply</a>
+            </nav>
 
-<section class="section">
-    <div class="container grid">
-        <div class="card">
-            <h2>What This Role Is</h2>
-
-            <p>
-                You will contact U.S. buyers by phone on behalf of agricultural equipment and vehicle dealers.
-                This role is for people who already understand remote sales, follow-ups, objections, and closing.
-            </p>
-
-            <p>
-                No office. No commute. Work from home with your own computer, stable internet connection,
-                and a quiet place to make calls.
-            </p>
+            <a href="#apply" class="header-cta">Apply Now</a>
         </div>
+    </header>
 
-        <div class="card">
-            <h2>Requirements</h2>
+    <main id="top">
+        <section class="hero section-large">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="eyebrow reveal">
+                        <span></span>
+                        Remote phone sales opportunity
+                    </div>
 
-            <ul>
-                <li>English level C1, C2, or Native</li>
-                <li>Experience in remote phone sales</li>
-                <li>Experience selling agricultural equipment, vehicles, or similar products is preferred</li>
-                <li>Available Monday–Friday, at least 8 hours per day</li>
-                <li>Own PC or laptop, stable internet, and a quiet workspace</li>
-            </ul>
-        </div>
-    </div>
-</section>
+                    <h1 class="hero-title reveal">
+                        Sell agricultural equipment and vehicles to U.S. buyers.
+                        <span>From home. Paid in USDT.</span>
+                    </h1>
 
-<section id="apply" class="section form-section">
-    <div class="container">
-        <div class="form">
-            <h2>Apply Now</h2>
+                    <p class="hero-subtitle reveal">
+                        A remote commission-based role for experienced phone sales professionals
+                        who already understand buyer conversations, follow-ups, objections, and closing.
+                    </p>
 
-            @if(session('success'))
-                <div class="success">
-                    {{ session('success') }}
+                    <div class="hero-actions reveal">
+                        <a href="#apply" class="btn btn-primary">
+                            Apply Now
+                            <span>→</span>
+                        </a>
+
+                        <a href="#role" class="btn btn-secondary">
+                            View Role Details
+                        </a>
+                    </div>
+
+                    <div class="hero-stats reveal">
+                        <div>
+                            <strong>Remote</strong>
+                            <span>No office required</span>
+                        </div>
+                        <div>
+                            <strong>USDT</strong>
+                            <span>Crypto payments</span>
+                        </div>
+                        <div>
+                            <strong>Mon–Fri</strong>
+                            <span>8 hours per day</span>
+                        </div>
+                    </div>
                 </div>
-            @endif
 
-            <form method="POST" action="{{ route('remote-sales.store') }}">
-                @csrf
+                <div class="hero-visual reveal">
+                    <div class="image-card main-image-card">
+                        <img src="{{ asset('images/hero.webp') }}" alt="Agricultural equipment on an American field">
+                    </div>
 
-                <div class="field">
-                    <label for="telegram_username">Telegram Username *</label>
-                    <input
-                        id="telegram_username"
-                        type="text"
-                        name="telegram_username"
-                        value="{{ old('telegram_username') }}"
-                        placeholder="@username"
-                        required
+                    <div class="floating-card floating-card-top">
+                        <span class="status-dot"></span>
+                        Experienced sellers only
+                    </div>
+
+                    <div class="floating-card floating-card-bottom">
+                        <strong>Commission based</strong>
+                        <span>Your performance drives your income</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="role" class="section-spacious role-section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-kicker">The role</span>
+                    <h2>This is not an entry-level script-reading position.</h2>
+                    <p>
+                        We are looking for people who already know how remote phone sales works.
+                        If you have sold vehicles, equipment, machinery, or high-ticket products by phone,
+                        you already understand the pace, pressure, and opportunity.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card reveal">
+                        <div class="feature-icon">☎</div>
+                        <h3>Phone-based U.S. sales</h3>
+                        <p>
+                            You will speak with buyers in the United States on behalf of agricultural
+                            equipment and vehicle dealers.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon">⌂</div>
+                        <h3>Work from home</h3>
+                        <p>
+                            No office and no commute. You only need your own computer, stable internet,
+                            and a quiet place to make calls.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon">◎</div>
+                        <h3>Commission-based income</h3>
+                        <p>
+                            This role is performance-driven. Your earning potential depends on your ability
+                            to manage conversations and close opportunities.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacious split-section">
+            <div class="container split-grid">
+                <div class="split-media reveal">
+                    <div class="wide-image-card">
+                        <img src="{{ asset('images/dealership.webp') }}" alt="American dealership and pickup truck">
+                    </div>
+                </div>
+
+                <div class="split-content reveal">
+                    <span class="section-kicker">Who this is for</span>
+                    <h2>Built for salespeople who already know the work.</h2>
+                    <p>
+                        This page is intentionally direct. We do not need to explain what follow-up calls,
+                        objections, no-shows, price pressure, or buyer hesitation are. You have seen it before.
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span>01</span>
+                            <div>
+                                <h3>Apply with your Telegram</h3>
+                                <p>Send your English level and a short summary of your sales background.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span>02</span>
+                            <div>
+                                <h3>We review your experience</h3>
+                                <p>Relevant remote phone sales experience matters more than a long resume.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span>03</span>
+                            <div>
+                                <h3>We contact selected applicants</h3>
+                                <p>If there is a fit, communication continues directly through Telegram.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="requirements" class="section-spacious requirements-section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-kicker">Requirements</span>
+                    <h2>Clear expectations before you apply.</h2>
+                    <p>
+                        This position requires strong spoken English, serious availability, and previous sales
+                        experience.
+                    </p>
+                </div>
+
+                <div class="requirements-grid">
+                    <article class="requirement-card reveal">
+                        <span>01</span>
+                        <h3>English C1 or higher</h3>
+                        <p>
+                            You must be confident, clear, and natural during phone conversations with U.S. buyers.
+                        </p>
+                    </article>
+
+                    <article class="requirement-card reveal">
+                        <span>02</span>
+                        <h3>Sales experience required</h3>
+                        <p>
+                            Remote phone sales experience is required. Equipment, vehicles, or similar product sales are
+                            preferred.
+                        </p>
+                    </article>
+
+                    <article class="requirement-card reveal">
+                        <span>03</span>
+                        <h3>Monday–Friday availability</h3>
+                        <p>
+                            You need to be available at least 8 hours per day, Monday through Friday.
+                        </p>
+                    </article>
+
+                    <article class="requirement-card reveal">
+                        <span>04</span>
+                        <h3>Reliable workspace</h3>
+                        <p>
+                            Own PC or laptop, stable internet connection, and a quiet place to handle calls
+                            professionally.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="apply" class="section-spacious application-section">
+            <div class="container application-grid">
+                <div class="application-copy reveal">
+                    <span class="section-kicker">Application</span>
+                    <h2>Ready to apply?</h2>
+                    <p>
+                        Keep it short and specific. We care about what you sold, how long you worked in sales,
+                        and whether you are comfortable speaking with U.S. buyers by phone.
+                    </p>
+
+                    <div class="application-note">
+                        <strong>Before submitting:</strong>
+                        <span>
+                                Make sure your Telegram username is correct. If your profile cannot be found,
+                                we may not be able to contact you.
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-card reveal">
+                    <div class="form-card-header">
+                        <div>
+                            <span>Apply now</span>
+                            <h3>Classic American Sales Application</h3>
+                        </div>
+                        <div class="form-badge">USDT</div>
+                    </div>
+
+                    <div class="form-alert form-alert-success" data-form-success hidden></div>
+                    <div class="form-alert form-alert-error" data-form-error hidden></div>
+
+                    <form
+                        method="POST"
+                        action="{{ route('remote-sales.store') }}"
+                        class="application-form"
+                        data-application-form
+                        novalidate
                     >
+                        @csrf
 
-                    @error('telegram_username')
-                    <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="field">
-                    <label for="english_level">English Level *</label>
-                    <select id="english_level" name="english_level" required>
-                        <option value="">Select your English level</option>
-
-                        @foreach($englishLevels as $englishLevel)
-                            <option
-                                value="{{ $englishLevel }}"
-                                @selected(old('english_level') === $englishLevel)
+                        <div class="field-group">
+                            <label for="telegram_username">Telegram Username *</label>
+                            <input
+                                id="telegram_username"
+                                type="text"
+                                name="telegram_username"
+                                value="{{ old('telegram_username') }}"
+                                placeholder="@username"
+                                autocomplete="off"
+                                required
                             >
-                                {{ $englishLevel }}
-                            </option>
-                        @endforeach
-                    </select>
+                            <div class="field-error" data-error-for="telegram_username"></div>
+                        </div>
 
-                    @error('english_level')
-                    <div class="error">{{ $message }}</div>
-                    @enderror
+                        <div class="field-group">
+                            <label for="english_level">English Level *</label>
+                            <select id="english_level" name="english_level" required>
+                                <option value="">Select your English level</option>
+
+                                @foreach($englishLevels as $englishLevel)
+                                    <option
+                                        value="{{ $englishLevel }}"
+                                        @selected(old('english_level') === $englishLevel)
+                                    >
+                                        {{ $englishLevel }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="field-error" data-error-for="english_level"></div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="sales_experience">Sales Experience *</label>
+                            <textarea
+                                id="sales_experience"
+                                name="sales_experience"
+                                placeholder="Briefly describe your experience — what you sold, how long you worked in sales, and when."
+                                required
+                            >{{ old('sales_experience') }}</textarea>
+                            <div class="field-error" data-error-for="sales_experience"></div>
+                        </div>
+
+                        <button type="submit" class="submit-button" data-submit-button>
+                            <span data-submit-text>Submit Application</span>
+                            <span class="button-loader" data-submit-loader hidden></span>
+                        </button>
+
+                        <p class="form-footnote">
+                            By submitting, you confirm that your information is accurate and that you are available
+                            for remote sales work.
+                        </p>
+                    </form>
                 </div>
-
-                <div class="field">
-                    <label for="sales_experience">Sales Experience *</label>
-                    <textarea
-                        id="sales_experience"
-                        name="sales_experience"
-                        placeholder="Briefly describe your experience — what you sold, how long you worked in sales, and when."
-                        required
-                    >{{ old('sales_experience') }}</textarea>
-
-                    @error('sales_experience')
-                    <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <button type="submit" class="submit">
-                    Submit Application
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
 </html>
