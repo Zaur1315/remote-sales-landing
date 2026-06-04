@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Remote Sales Jobs | Agricultural Equipment & Vehicle Sales</title>
+    <title>Classic American Sales | Agricultural Equipment & Vehicle Sales</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
           content="Remote phone sales opportunity for experienced agricultural equipment and vehicle sales specialists. Work from home. Paid in USDT.">
@@ -132,7 +132,7 @@
                     </article>
 
                     <article class="feature-card reveal">
-                        <div class="feature-icon">⌂</div>
+                        <div class="feature-icon">🏚</div>
                         <h3>Work from home</h3>
                         <p>
                             No office and no commute. You only need your own computer, stable internet,
@@ -141,7 +141,7 @@
                     </article>
 
                     <article class="feature-card reveal">
-                        <div class="feature-icon">◎</div>
+                        <div class="feature-icon">🎟</div>
                         <h3>Commission-based income</h3>
                         <p>
                             This role is performance-driven. Your earning potential depends on your ability
@@ -271,7 +271,6 @@
                             <span>Apply now</span>
                             <h3>Classic American Sales Application</h3>
                         </div>
-                        <div class="form-badge">USDT</div>
                     </div>
 
                     <div class="form-alert form-alert-success" data-form-success hidden></div>
@@ -295,6 +294,9 @@
                                 value="{{ old('telegram_username') }}"
                                 placeholder="@username"
                                 autocomplete="off"
+                                inputmode="text"
+                                pattern="^@?[A-Za-z0-9_]+$"
+                                maxlength="100"
                                 required
                             >
                             <div class="field-error" data-error-for="telegram_username"></div>

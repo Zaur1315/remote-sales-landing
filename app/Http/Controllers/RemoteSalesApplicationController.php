@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRemoteSalesApplicationRequest;
+use App\Mail\NewRemoteSalesApplicationMail;
 use App\Models\RemoteSalesApplication;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 
 final class RemoteSalesApplicationController extends Controller
 {
@@ -21,13 +23,21 @@ final class RemoteSalesApplicationController extends Controller
 
     public function store(StoreRemoteSalesApplicationRequest $request): RedirectResponse|JsonResponse
     {
-        RemoteSalesApplication::query()->create([
+        $application = RemoteSalesApplication::query()->create([
             'telegram_username' => $request->string('telegram_username')->toString(),
             'english_level' => $request->string('english_level')->toString(),
             'sales_experience' => $request->string('sales_experience')->toString(),
             'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
         ]);
+
+        $notificationEmail = config('remote-sales.notification_email');
+
+        if (is_string($notificationEmail) && $notificationEmail !== '') {
+            Mail::to($notificationEmail)->send(
+                new NewRemoteSalesApplicationMail($application)
+            );
+        }
 
         if ($request->expectsJson()) {
             return response()->json([

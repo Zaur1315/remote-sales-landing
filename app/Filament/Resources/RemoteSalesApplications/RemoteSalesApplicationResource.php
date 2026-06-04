@@ -14,6 +14,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -22,6 +23,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\HtmlString;
 
 final class RemoteSalesApplicationResource extends Resource
 {
@@ -91,50 +93,80 @@ final class RemoteSalesApplicationResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable(),
-
-                IconColumn::make('is_favorite')
-                    ->label('Favorite')
-                    ->boolean()
-                    ->sortable(),
-
-                IconColumn::make('viewed_at')
-                    ->label('Viewed')
-                    ->boolean()
-                    ->getStateUsing(
-                        static fn(RemoteSalesApplication $record): bool => $record->viewed_at !== null
-                    )
-                    ->sortable(),
-
                 TextColumn::make('telegram_username')
                     ->label('Telegram')
+                    ->html()
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->formatStateUsing(
+                        static function (
+                            string $state,
+                            RemoteSalesApplication $record,
+                            ListRemoteSalesApplications $livewire,
+                        ): HtmlString {
+                            $telegram = e($state);
+
+                            if (!$livewire->isNewApplication((int) $record->id)) {
+                                return new HtmlString(
+                                    '<span style="font-weight: 700;">' . $telegram . '</span>'
+                                );
+                            }
+
+                            return new HtmlString(
+                                '<div style="display: inline-flex; align-items: center; gap: 8px;">'
+                                . '<span style="font-weight: 700;">' . $telegram . '</span>'
+                                . '<span style="
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 3px 8px;
+                        border-radius: 999px;
+                        background: #dc2626;
+                        color: #ffffff;
+                        font-size: 11px;
+                        font-weight: 800;
+                        line-height: 1;
+                        text-transform: uppercase;
+                        letter-spacing: 0.04em;
+                    ">New</span>'
+                                . '</div>'
+                            );
+                        }
+                    ),
 
                 TextColumn::make('english_level')
                     ->label('English')
                     ->badge()
                     ->sortable(),
 
-                TextColumn::make('sales_experience')
-                    ->label('Experience')
-                    ->limit(80)
-                    ->wrap()
-                    ->searchable(),
-
                 TextColumn::make('created_at')
                     ->label('Submitted At')
                     ->dateTime('Y-m-d H:i')
                     ->sortable(),
+
+                IconColumn::make('is_favorite')
+                    ->label('')
+                    ->alignCenter()
+                    ->state(static fn(RemoteSalesApplication $record): bool => $record->is_favorite)
+                    ->icon(
+                        static fn(bool $state): string => $state
+                            ? 'heroicon-s-star'
+                            : 'heroicon-o-star'
+                    )
+                    ->color(
+                        static fn(bool $state): string => $state
+                            ? 'warning'
+                            : 'gray'
+                    )
+                    ->tooltip(
+                        static fn(RemoteSalesApplication $record): string => $record->is_favorite
+                            ? 'Remove from favorites'
+                            : 'Add to favorites'
+                    )
+                    ->action(static function (RemoteSalesApplication $record): void {
+                        $record->toggleFavorite();
+                    }),
             ])
             ->filters([
-                Filter::make('unread_only')
-                    ->label('Unread only')
-                    ->query(
-                        static fn(Builder $query): Builder => $query->whereNull('viewed_at')
-                    ),
 
                 Filter::make('favorite_only')
                     ->label('Favorite only')
@@ -154,48 +186,31 @@ final class RemoteSalesApplicationResource extends Resource
                         return $query
                             ->when(
                                 $data['created_from'] ?? null,
-                                static fn(Builder $query, string $date): Builder => $query->whereDate('created_at', '>=', $date),
+                                static fn(Builder $query, string $date): Builder => $query->whereDate(
+                                    'created_at',
+                                    '>=',
+                                    $date
+                                ),
                             )
                             ->when(
                                 $data['created_until'] ?? null,
-                                static fn(Builder $query, string $date): Builder => $query->whereDate('created_at', '<=', $date),
+                                static fn(Builder $query, string $date): Builder => $query->whereDate(
+                                    'created_at',
+                                    '<=',
+                                    $date
+                                ),
                             );
                     }),
             ])
             ->recordActions([
-                ViewAction::make(),
-
-                Action::make('toggle_favorite')
-                    ->label(
-                        static fn(RemoteSalesApplication $record): string => $record->is_favorite
-                            ? 'Unfavorite'
-                            : 'Favorite'
-                    )
-                    ->icon('heroicon-o-star')
-                    ->color(
-                        static fn(RemoteSalesApplication $record): string => $record->is_favorite
-                            ? 'gray'
-                            : 'warning'
-                    )
-                    ->action(static function (RemoteSalesApplication $record): void {
-                        $record->toggleFavorite();
-                    }),
-
-                Action::make('mark_unread')
-                    ->label('Mark unread')
-                    ->icon('heroicon-o-eye-slash')
-                    ->color('gray')
-                    ->visible(
-                        static fn(RemoteSalesApplication $record): bool => $record->viewed_at !== null
-                    )
-                    ->action(static function (RemoteSalesApplication $record): void {
-                        $record->markAsUnread();
-                    }),
+                ViewAction::make()
+                    ->label('View')
+                    ->icon('heroicon-o-eye'),
             ]);
     }
 
     /**
-     * @return array<string, \Filament\Resources\Pages\PageRegistration>
+     * @return array<string, PageRegistration>
      */
     public static function getPages(): array
     {

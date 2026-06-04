@@ -28,6 +28,7 @@ final class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->login()
             ->brandName('Remote Sales Admin')
             ->favicon(asset('favicon.ico'))
             ->colors([

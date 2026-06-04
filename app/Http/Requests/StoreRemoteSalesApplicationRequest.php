@@ -25,6 +25,7 @@ final class StoreRemoteSalesApplicationRequest extends FormRequest
                 'required',
                 'string',
                 'max:100',
+                'regex:/^@?[A-Za-z0-9_]+$/',
             ],
             'english_level' => [
                 'required',
@@ -47,6 +48,7 @@ final class StoreRemoteSalesApplicationRequest extends FormRequest
         return [
             'telegram_username.required' => 'Telegram username is required.',
             'telegram_username.max' => 'Telegram username must not be longer than 100 characters.',
+            'telegram_username.regex' => 'Telegram username may contain only Latin letters, numbers, underscores, and an optional @ at the beginning.',
 
             'english_level.required' => 'English level is required.',
             'english_level.in' => 'Please select a valid English level.',

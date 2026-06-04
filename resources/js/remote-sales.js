@@ -102,12 +102,33 @@ const initAjaxForm = () => {
         return;
     }
 
+    applicationForm.querySelectorAll('input, select, textarea').forEach((field) => {
+        field.addEventListener('input', () => {
+            const fieldName = field.getAttribute('name');
+            const errorElement = document.querySelector(`[data-error-for="${fieldName}"]`);
+
+            field.removeAttribute('aria-invalid');
+
+            if (errorElement) {
+                errorElement.textContent = '';
+            }
+
+            hideAlert(errorAlert);
+        });
+    });
+
     applicationForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         clearFieldErrors();
         hideAlert(successAlert);
         hideAlert(errorAlert);
+
+        if (!validateRequiredFields()) {
+            showAlert(errorAlert, 'Please fill in all required fields.');
+            return;
+        }
+
         setLoading(true);
 
         const formData = new FormData(applicationForm);
@@ -116,38 +137,90 @@ const initAjaxForm = () => {
             const response = await fetch(applicationForm.action, {
                 method: 'POST',
                 body: formData,
+                credentials: 'same-origin',
                 headers: {
                     Accept: 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
                 },
             });
 
-            const payload = await response.json();
+            const contentType = response.headers.get('content-type') || '';
+            const isJson = contentType.includes('application/json');
+
+            const payload = isJson
+                ? await response.json()
+                : {message: await response.text()};
+
+            if (response.status === 422 && payload.errors) {
+                showValidationErrors(payload.errors);
+                showAlert(errorAlert, 'Please check the highlighted fields and try again.');
+                return;
+            }
+
+            if (response.status === 419) {
+                showAlert(errorAlert, 'Your session expired. Please refresh the page and try again.');
+                return;
+            }
 
             if (!response.ok) {
-                if (response.status === 422 && payload.errors) {
-                    showValidationErrors(payload.errors);
-                    showAlert(errorAlert, 'Please check the highlighted fields and try again.');
-                    return;
-                }
-
                 showAlert(errorAlert, payload.message || 'Something went wrong. Please try again.');
                 return;
             }
 
             applicationForm.reset();
-            showAlert(successAlert, payload.message || 'Your application has been submitted successfully.');
+
+            showAlert(
+                successAlert,
+                payload.message || 'Your application has been submitted successfully.',
+            );
 
             successAlert?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
             });
         } catch (error) {
-            showAlert(errorAlert, 'Network error. Please check your connection and try again.');
+            showAlert(errorAlert, 'Unable to submit the form right now. Please try again.');
         } finally {
             setLoading(false);
         }
     });
+};
+
+const validateRequiredFields = () => {
+    const requiredFields = applicationForm.querySelectorAll('[required]');
+    let isValid = true;
+
+    requiredFields.forEach((field) => {
+        const fieldName = field.getAttribute('name');
+        const errorElement = document.querySelector(`[data-error-for="${fieldName}"]`);
+        const fieldValue = field.value.trim();
+
+        if (!fieldValue) {
+            isValid = false;
+            field.setAttribute('aria-invalid', 'true');
+
+            if (errorElement) {
+                errorElement.textContent = 'This field is required.';
+            }
+
+            return;
+        }
+
+        if (fieldName === 'telegram_username') {
+            const telegramPattern = /^@?[A-Za-z0-9_]+$/;
+
+            if (!telegramPattern.test(fieldValue)) {
+                isValid = false;
+                field.setAttribute('aria-invalid', 'true');
+
+                if (errorElement) {
+                    errorElement.textContent = 'Telegram username may contain only Latin letters, numbers, underscores, and an optional @ at the beginning.';
+                }
+            }
+        }
+    });
+
+    return isValid;
 };
 
 window.addEventListener('scroll', updateHeaderState, {passive: true});
