@@ -174,17 +174,6 @@ const initAjaxForm = () => {
                 }, {
                     eventID: payload.meta_event_id,
                 });
-
-                console.info('[Meta Pixel] Lead event fired successfully.', {
-                    event_name: 'Lead',
-                    event_id: payload.meta_event_id,
-                    pixel_id: window.metaPixelId || null,
-                });
-            } else {
-                console.warn('[Meta Pixel] Lead event was not fired.', {
-                    fbq_loaded: Boolean(window.fbq),
-                    event_id: payload.meta_event_id || null,
-                });
             }
 
             applicationForm.reset();
