@@ -11,6 +11,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
+use App\Services\Meta\MetaConversionsApiService;
+use App\Services\Meta\MetaEventIdFactory;
 
 final class RemoteSalesApplicationController extends Controller
 {
@@ -21,8 +23,11 @@ final class RemoteSalesApplicationController extends Controller
         ]);
     }
 
-    public function store(StoreRemoteSalesApplicationRequest $request): RedirectResponse|JsonResponse
-    {
+    public function store(
+        StoreRemoteSalesApplicationRequest $request,
+        MetaEventIdFactory $eventIdFactory,
+        MetaConversionsApiService $metaConversionsApiService,
+    ): RedirectResponse|JsonResponse {
         $application = RemoteSalesApplication::query()->create([
             'telegram_username' => $request->string('telegram_username')->toString(),
             'english_level' => $request->string('english_level')->toString(),
@@ -30,6 +35,14 @@ final class RemoteSalesApplicationController extends Controller
             'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
         ]);
+
+        $eventId = $eventIdFactory->makeLeadEventId();
+
+        $metaConversionsApiService->sendLead(
+            application: $application,
+            request: $request,
+            eventId: $eventId,
+        );
 
         $notificationEmail = config('remote-sales.notification_email');
 
@@ -42,6 +55,7 @@ final class RemoteSalesApplicationController extends Controller
         if ($request->expectsJson()) {
             return response()->json([
                 'message' => 'Your application has been submitted successfully. We will review your experience and contact you on Telegram if there is a fit.',
+                'meta_event_id' => $eventId,
             ]);
         }
 
