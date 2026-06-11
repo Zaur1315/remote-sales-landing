@@ -88,8 +88,9 @@
                     </h1>
 
                     <p class="hero-subtitle reveal">
-                        A remote commission-based role for experienced phone sales professionals
-                        who already understand buyer conversations, follow-ups, objections, and closing.
+                        We're looking for top-tier salesmen to join our team! Do you know English and know how to
+                        close deals over the phone? Then you're the person we're looking for!
+                        Work safely from home. Payments of <b>$2,000–$7,000 in USDT</b>.
                     </p>
 
                     <div class="hero-actions reveal">
@@ -110,11 +111,11 @@
                         </div>
                         <div>
                             <strong>USDT</strong>
-                            <span>Crypto payments</span>
+                            <span>$2,000 – $7,000 salary</span>
                         </div>
                         <div>
-                            <strong>Mon–Fri</strong>
-                            <span>8 hours per day</span>
+                            <strong>9AM–5PM CST</strong>
+                            <span>Monday – Friday</span>
                         </div>
                     </div>
                 </div>
@@ -143,37 +144,36 @@
                     <span class="section-kicker">The role</span>
                     <h2>This is not an entry-level script-reading position.</h2>
                     <p>
-                        We are looking for people who already know how remote phone sales works.
-                        If you have sold vehicles, equipment, machinery, or high-ticket products by phone,
-                        you already understand the pace, pressure, and opportunity.
+                        We’re not looking for people who just follow scripts. We need a strong salesperson who’s ready
+                        to sell, grow, and develop professionally.
                     </p>
                 </div>
 
                 <div class="feature-grid">
                     <article class="feature-card reveal">
-                        <div class="feature-icon">☎</div>
-                        <h3>Phone-based U.S. sales</h3>
+                        <div class="feature-icon">🇺🇸</div>
+                        <h3>We work with the U.S. market.</h3>
                         <p>
-                            You will speak with buyers in the United States on behalf of agricultural
-                            equipment and vehicle dealers.
+                            You will communicate with buyers across the United States and help connect them
+                            with agricultural equipment and vehicle dealers.
                         </p>
                     </article>
 
                     <article class="feature-card reveal">
-                        <div class="feature-icon">🏚</div>
-                        <h3>Work from home</h3>
+                        <div class="feature-icon">🏠</div>
+                        <h3>Work safely from home.</h3>
                         <p>
-                            No office and no commute. You only need your own computer, stable internet,
-                            and a quiet place to make calls.
+                            No office and no commute. You can work remotely from a quiet place with your own
+                            computer, stable internet connection, and a professional calling setup.
                         </p>
                     </article>
 
                     <article class="feature-card reveal">
-                        <div class="feature-icon">🎟</div>
-                        <h3>Commission-based income</h3>
+                        <div class="feature-icon">💵</div>
+                        <h3>We pay competitive commissions</h3>
                         <p>
-                            This role is performance-driven. Your earning potential depends on your ability
-                            to manage conversations and close opportunities.
+                            This is a performance-based role with commission opportunities for strong salespeople
+                            who can manage conversations, follow up consistently, and close deals.
                         </p>
                     </article>
                 </div>
