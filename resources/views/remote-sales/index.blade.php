@@ -15,13 +15,23 @@
         <script>
             window.metaPixelId = @json(config('meta.pixel_id'));
 
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
 
             fbq('init', window.metaPixelId);
@@ -180,50 +190,50 @@
             </div>
         </section>
 
-        <section class="section-spacious split-section">
-            <div class="container split-grid">
-                <div class="split-media reveal">
-                    <div class="wide-image-card">
-                        <img src="{{ asset('images/dealership.webp') }}" alt="American dealership and pickup truck">
-                    </div>
-                </div>
+        {{--        <section class="section-spacious split-section">--}}
+        {{--            <div class="container split-grid">--}}
+        {{--                <div class="split-media reveal">--}}
+        {{--                    <div class="wide-image-card">--}}
+        {{--                        <img src="{{ asset('images/dealership.webp') }}" alt="American dealership and pickup truck">--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
 
-                <div class="split-content reveal">
-                    <span class="section-kicker">Who this is for</span>
-                    <h2>Built for salespeople who already know the work.</h2>
-                    <p>
-                        This page is intentionally direct. We do not need to explain what follow-up calls,
-                        objections, no-shows, price pressure, or buyer hesitation are. You have seen it before.
-                    </p>
+        {{--                <div class="split-content reveal">--}}
+        {{--                    <span class="section-kicker">Who this is for</span>--}}
+        {{--                    <h2>Built for salespeople who already know the work.</h2>--}}
+        {{--                    <p>--}}
+        {{--                        This page is intentionally direct. We do not need to explain what follow-up calls,--}}
+        {{--                        objections, no-shows, price pressure, or buyer hesitation are. You have seen it before.--}}
+        {{--                    </p>--}}
 
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span>01</span>
-                            <div>
-                                <h3>Apply with your Telegram</h3>
-                                <p>Send your English level and a short summary of your sales background.</p>
-                            </div>
-                        </div>
+        {{--                    <div class="timeline">--}}
+        {{--                        <div class="timeline-item">--}}
+        {{--                            <span>01</span>--}}
+        {{--                            <div>--}}
+        {{--                                <h3>Apply with your Telegram</h3>--}}
+        {{--                                <p>Send your English level and a short summary of your sales background.</p>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
 
-                        <div class="timeline-item">
-                            <span>02</span>
-                            <div>
-                                <h3>We review your experience</h3>
-                                <p>Relevant remote phone sales experience matters more than a long resume.</p>
-                            </div>
-                        </div>
+        {{--                        <div class="timeline-item">--}}
+        {{--                            <span>02</span>--}}
+        {{--                            <div>--}}
+        {{--                                <h3>We review your experience</h3>--}}
+        {{--                                <p>Relevant remote phone sales experience matters more than a long resume.</p>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
 
-                        <div class="timeline-item">
-                            <span>03</span>
-                            <div>
-                                <h3>We contact selected applicants</h3>
-                                <p>If there is a fit, communication continues directly through Telegram.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        {{--                        <div class="timeline-item">--}}
+        {{--                            <span>03</span>--}}
+        {{--                            <div>--}}
+        {{--                                <h3>We contact selected applicants</h3>--}}
+        {{--                                <p>If there is a fit, communication continues directly through Telegram.</p>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </section>--}}
 
         <section id="requirements" class="section-spacious requirements-section">
             <div class="container">
